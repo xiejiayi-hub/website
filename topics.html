@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>话题 · Movie Mingle</title>
+  <link rel="icon" type="image/jpeg" href="imgs/favicon.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container clearfix">
+      <div class="logo left"><h1><img src="imgs/favicon.jpg" alt="Movie Mingle" class="logo-img"/></h1></div>
+      <div class="search left">
+        <form>
+          <input type="text" placeholder="搜索电影、影人、话题...">
+          <button type="submit" class="search-btn" aria-label="search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.5" cy="10.5" r="6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="menu right">
+        <a href="index.html" class="menu-item">主页</a>
+        <a href="movies.html" class="menu-item">电影</a>
+        <a href="topics.html" class="menu-item">话题</a>
+        <a href="community.html" class="menu-item">社区</a>
+      </div>
+      <div id="header-user" class="header-user"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>话题广场</h2>
+    <p>推荐你参与的热门话题与精选动态。点击“换一批看看”获取更多话题。</p>
+
+    <div class="topics-layout">
+      <section class="topics-main">
+        <div class="topics-recs-head">
+          <h3>推荐你来参与</h3>
+          <div>
+            <a href="#" id="shuffle-topics" class="small-link">换一批看看</a>
+            <a href="#" id="open-create-topic" class="small-link" style="margin-left:12px">创建话题</a>
+          </div>
+        </div>
+
+        <div id="create-topic" class="create-topic" style="display:none; margin-bottom:12px;">
+          <form id="create-topic-form">
+            <input id="new-topic-name" name="name" placeholder="话题名称（必填）" required>
+            <input id="new-topic-desc" name="desc" placeholder="一句话描述（可选）">
+            <label style="display:block; font-size:13px; color:#666; margin-bottom:6px">上传封面图（可选，支持 jpg/png）</label>
+            <input id="new-topic-image" name="image" type="file" accept="image/*">
+            <div style="margin-top:8px;"><button class="btn" type="submit">创建话题</button></div>
+          </form>
+        </div>
+
+        <div id="topic-cards" class="topic-cards"></div>
+      </section>
+
+      <aside class="topics-side">
+        <div class="box">
+          <h3>话题广场简介</h3>
+          <p>话题广场体现社区的讨论趋势，你可以在此发现同一主题下的精彩内容，欢迎参与讨论。</p>
+        </div>
+        <div class="box" style="margin-top:12px">
+          <h3>实时热门讨论</h3>
+          <ol id="hot-topics" class="hot-topics"></ol>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">&copy; 2025 Movie Mingle</div>
+  </footer>
+
+  <script src="scripts/site-auth.js"></script>
+  <script src="scripts/topics.js"></script>
+  <script>siteAuth.renderHeader();</script>
+  <script src="scripts/search.js"></script>
+  <script>if(window.searchHandler && searchHandler.init) searchHandler.init();</script>
+  <script>if(window.topics) topics.init();</script>
+</body>
+</html>

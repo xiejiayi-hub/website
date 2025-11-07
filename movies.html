@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>电影 · Movie Mingle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container clearfix">
+      <div class="logo left"><h1><img src="imgs/favicon.jpg" alt="Movie Mingle" class="logo-img"/></h1></div>
+      <div class="search left">
+        <form>
+          <input type="text" placeholder="搜索电影、影人、话题...">
+          <button type="submit" class="search-btn" aria-label="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.5" cy="10.5" r="6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+      </div>
+      <div class="menu right">
+        <a href="index.html" class="menu-item">主页</a>
+        <a href="movies.html" class="menu-item">电影</a>
+        <a href="topics.html" class="menu-item">话题</a>
+        <a href="community.html" class="menu-item">社区</a>
+      </div>
+      <div id="header-user" class="header-user"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>电影</h2>
+    <p>在这里可以按名称、导演、年份或标签搜索电影。示例列表：</p>
+
+    <!-- 电影卡片网格 （由 scripts/movies.js 动态渲染） -->
+    <section id="movies-grid" class="movies-grid" aria-label="电影列表">
+      <!-- cards inserted here -->
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">&copy; 2025 Movie Mingle</div>
+  </footer>
+  <script src="scripts/site-auth.js"></script>
+  <script>siteAuth.renderHeader();</script>
+  <script src="scripts/movies.js"></script>
+  <script>if(window.moviesList && moviesList.init) moviesList.init();</script>
+  <script src="scripts/search.js"></script>
+  <script>if(window.searchHandler && searchHandler.init) searchHandler.init();</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Movie Mingle is more than just a film information platform. The platform enables precise connections among cinephiles: whether you're a Kurosawa enthusiast...">
+  <title>Movie Mingle:|A Community of Cinephiles Under the Light </title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="container clearfix">
+            <div class="logo left">
+                <!-- 使用 imgs/favicon.jpg 作为静态 logo（不可点击） -->
+                <h1><img src="imgs/favicon.jpg" alt="Movie Mingle" class="logo-img" /></h1>
+            </div>
+            <div class="search left">
+                <form>
+                    <input type="text" placeholder="搜索电影、影人、话题...">
+                    <button type="submit" class="search-btn" aria-label="search">
+                      <!-- inline SVG magnifier -->
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.5" cy="10.5" r="6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </form>
+            </div>
+            <div class="menu right">
+                <a href="index.html" class="menu-item">主页</a>
+                <a href="movies.html" class="menu-item">电影</a>
+                <a href="topics.html" class="menu-item">话题</a>
+                <a href="community.html" class="menu-item">社区</a>
+            </div>
+            <div id="header-user" class="header-user"></div>
+        </div>
+    </header>
+
+    <!-- 横幅区域 -->
+    <div class="banner">
+        <div class="container clearfix">
+            <div class="slogan left">
+                <h2>Where Every Film Finds Its Perfect Discussion</h2>
+                <p>连接电影同好，深度讨论每一部佳作</p>
+                <a href="community.html" class="btn">加入社区</a>
+            </div>
+            <div class="banner-img right">
+                <!-- 修正图片路径 -->
+                                    <div class="img-card">
+                                        <img src="imgs/background.jpg" alt="电影胶片背景">
+                                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 核心内容区 -->
+    <div class="main">
+        <div class="container clearfix">
+    
+
+            <!-- 中栏：热门话题 -->
+            <section class="content-middle left">
+                <h3>热门话题</h3>
+                <ul class="topic-list">
+                    <li>
+                        <h4><a href="movie-detail.html?id=seven-samurai">为什么《七武士》是影史不朽杰作？</a></h4>
+                        <p class="meta"><i class="fa-solid fa-comment"></i> 128 条讨论 · <span class="tag">经典</span></p>
+                    </li>
+                    <li>
+                        <h4><a href="movie-detail.html?id=oppenheimer">《奥本海默》的科学与叙事艺术</a></h4>
+                        <p class="meta"><i class="fa-solid fa-comment"></i> 96 条讨论 · <span class="tag">科幻</span></p>
+                    </li>
+                    <li>
+                        <h4><a href="topics.html">2024 必看独立电影推荐</a></h4>
+                        <p class="meta"><i class="fa-solid fa-comment"></i> 72 条讨论 · <span class="tag">独立</span></p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 右栏：推荐影人 -->
+            <aside class="aside-right right">
+                <h3>推荐影人</h3>
+                <ul class="user-list">
+                    <li>
+                        <!-- 修正图片路径 -->
+                        <img src="imgs/kurosawa.jpg" alt="用户头像" class="avatar">
+                        <p>黑泽明</p><br><br>
+                    </li>
+                    <li>
+                        <!-- 修正图片路径 -->
+                        <img src="imgs/christopher-nolan.jpg" alt="用户头像" class="avatar">
+                        <p>诺兰</p><br><br>
+                    </li>
+                    <li>
+                        <!-- 修正图片路径 -->
+                        <img src="imgs/indie-film.jpg" alt="用户头像" class="avatar">
+                        <p>独立片</p>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Movie Mingle. 电影同好社区，深度讨论每一部佳作。</p>
+        </div>
+    </footer>
+    <script src="scripts/site-auth.js"></script>
+    <script>siteAuth.renderHeader();</script>
+    <script src="scripts/search.js"></script>
+    <script>if(window.searchHandler && searchHandler.init) searchHandler.init();</script>
+</body>
+</html>

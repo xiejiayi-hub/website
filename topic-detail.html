@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>话题讨论 · Movie Mingle</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .comment-container {
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .comment-input {
+      width: 100%;
+      min-height: 120px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      resize: vertical;
+    }
+    .submit-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+    .topic-title {
+      margin-bottom: 15px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header class="header" style="background: #f5f5f5; padding: 10px 0;">
+    <div class="container clearfix">
+      <div class="logo left"><h1><img src="imgs/favicon.jpg" alt="Movie Mingle" class="logo-img" style="height:40px;"/></h1></div>
+      <div class="menu right">
+        <a href="topics.html" class="menu-item">返回话题列表</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="comment-container">
+      <h2 class="topic-title" id="topic-name"></h2>
+      <textarea class="comment-input" placeholder="写下你的评论..."></textarea>
+      <button class="submit-btn">发布评论</button>
+    </div>
+  </main>
+
+  <script src="scripts/site-auth.js"></script>
+  <script>
+    // 话题数据
+    const topicMap = {
+      't-1': { name: '关于秋冬的治愈瞬间', desc: '分享冬天让你幸福感爆棚的小确幸' },
+      't-2': { name: '我的精神防寒套装', desc: '聊聊那些让人瞬间破防的校园/青春细节' },
+      't-3': { name: '秋冬治愈系好味', desc: '冬天必须烤红薯！香气一出直接回血' },
+      't-4': { name: '一代人有一代人的那修省钱法', desc: '你有哪些「抠门」但快乐的生活技巧？' },
+      't-5': { name: '提名那些“买了就后悔”的冤大头单品', desc: '避雷清单，一起省钱' },
+      't-6': { name: '从JK到AIP的记忆小震撼', desc: '校服到人工智能，青春与科技的碰撞' }
+    };
+
+    // 获取当前话题ID并显示话题名称
+    const params = new URLSearchParams(window.location.search);
+    const tid = params.get('id');
+    const topic = topicMap[tid];
+    
+    if (topic) {
+      document.getElementById('topic-name').textContent = topic.name;
+    } else {
+      document.querySelector('.topic-title').textContent = '话题不存在';
+      document.querySelector('.comment-input').disabled = true;
+      document.querySelector('.submit-btn').disabled = true;
+    }
+
+    // 发布评论功能
+    document.querySelector('.submit-btn').addEventListener('click', function() {
+      const commentText = document.querySelector('.comment-input').value.trim();
+      if (commentText) {
+        // 这里可以添加评论提交逻辑
+        alert('评论发布成功！');
+        document.querySelector('.comment-input').value = '';
+      } else {
+        alert('请输入评论内容');
+      }
+    });
+  </script>
+</body>
+</html>

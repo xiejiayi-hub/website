@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>社区 · Movie Mingle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container clearfix">
+      <div class="logo left"><h1><img src="imgs/favicon.jpg" alt="Movie Mingle" class="logo-img"/></h1></div>
+      <div class="search left">
+        <form>
+          <input type="text" placeholder="搜索电影、影人、话题...">
+          <button type="submit" class="search-btn" aria-label="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.5" cy="10.5" r="6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+      </div>
+      <div class="menu right">
+        <a href="index.html" class="menu-item">主页</a>
+        <a href="movies.html" class="menu-item">电影</a>
+        <a href="topics.html" class="menu-item">话题</a>
+        <a href="community.html" class="menu-item">社区</a>
+      </div>
+      <div id="header-user" class="header-user"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>我的小组讨论</h2>
+    <p>创建或加入小组，在小组中发布讨论。</p>
+
+    <div class="groups-layout">
+      <section class="groups-main" aria-label="小组内容">
+        <div id="group-header" class="group-header">请选择一个小组以查看讨论</div>
+
+        <div id="group-compose" class="group-compose" style="display:none">
+          <form id="post-form">
+            <input id="post-title" name="title" placeholder="讨论标题" required>
+            <textarea id="post-content" name="content" placeholder="写下你的想法..." required></textarea>
+            <div class="compose-actions">
+              <button type="submit" class="btn">发布讨论</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="group-posts" class="group-posts">
+          <!-- 帖子列表由 scripts/groups.js 渲染 -->
+        </div>
+      </section>
+
+      <aside class="groups-aside" aria-label="小组侧栏">
+        <div class="box">
+          <h3>我的小组</h3>
+          <div id="my-groups">暂无（登录后创建）</div>
+        </div>
+
+        <div class="box" style="margin-top:12px">
+          <h3>所有小组</h3>
+          <div id="groups-list">正在加载小组…</div>
+        </div>
+
+        <div class="box" style="margin-top:12px">
+          <h3>创建小组</h3>
+          <form id="create-group-form">
+            <input id="group-name" name="name" placeholder="小组名称" required>
+            <input id="group-desc" name="desc" placeholder="一句话描述（可选）">
+            <div style="margin-top:8px"><button type="submit" class="btn">创建小组</button></div>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">&copy; 2025 Movie Mingle</div>
+  </footer>
+  <script src="scripts/site-auth.js"></script>
+  <script src="scripts/groups.js"></script>
+  <script>siteAuth.renderHeader();</script>
+  <script>if(window.groups) groups.init();</script>
+</body>
+</html>
